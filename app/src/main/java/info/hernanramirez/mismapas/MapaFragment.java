@@ -16,6 +16,7 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -174,7 +175,9 @@ public class MapaFragment extends Fragment  implements OnMapReadyCallback {
 
         // Add a marker in Sydney and move the camera
         LatLng sitio = new LatLng(lat, log);
-        mMap.addMarker(new MarkerOptions().position(sitio).title(title));
+        mMap.addMarker(new MarkerOptions().position(sitio).title(title).
+                icon(BitmapDescriptorFactory.fromResource(R.drawable.marker)));
+        //mMap.addMarker(new MarkerOptions().position(sitio).title(title)).icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_marker)));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sitio));
 
         CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(sitio, 17);
